@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    background: rgb(132, 0, 255);
+    background: -moz-linear-gradient(90deg, rgba(132, 0, 255, 1) 0%, rgba(120, 19, 255, 1) 22%, rgba(0, 212, 255, 1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(132, 0, 255, 1) 0%, rgba(120, 19, 255, 1) 22%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(90deg, rgba(132, 0, 255, 1) 0%, rgba(120, 19, 255, 1) 22%, #00d4ff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8400ff", endColorstr="#00d4ff", GradientType=1);
+    font-family: 'Lato', 'sans-serif';
+    color: white;
+}
+
+.header {
+    padding: 38px;
+    text-align: left;
+    font-size: 30px;
+}
+
+button {
+    border-radius: 5000px;
+    font-size: 30px;
+    font-family: 'Lato', 'sans-serif';
+    padding: 12px 28px;
+    background-color: grey;
+    color: white;
+    border: none;
+}
