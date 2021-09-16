@@ -1,1 +1,40 @@
-@font-face{font-family:"SF Pro Regular";font-style:normal;font-weight:normal;src:local("SF Pro Regular"),url("https://doc-0c-7c-docs.googleusercontent.com/docs/securesc/l9me352mm9iigts7pnv45niqu67hlmjn/7du8h210jom1q628imp34gp3kpv4jn93/1631819925000/07978911482215311275/07978911482215311275/1-6qJdYT36F4cLqYbnHXf1V6XmjRieKLJ?e=download") format("woff2")}html{scroll-behavior:smooth}body{font-family:"SF Pro Regular";background:black;color:#fff;text-align:center}.title{margin-top:10%;display:inline-block;font-size:2em;color:#fff}p{font-size:1.5em}a{font-family:"SF Pro Regular";font-size:1.25em;text-decoration:none;color:#fff;border-bottom:3px solid transparent}a:hover{border-bottom:3px solid white}
+@font-face {
+    font-family: "SF Pro Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("SF Pro Regular"), url(/assets/coolfont.ttf) format("ttf");
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: "SF Pro Regular";
+    background: black;
+    color: #fff;
+    text-align: center
+}
+
+.title {
+    margin-top: 10%;
+    display: inline-block;
+    font-size: 2em;
+    color: #fff
+}
+
+p {
+    font-size: 1.5em
+}
+
+a {
+    font-family: "SF Pro Regular";
+    font-size: 1.25em;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 3px solid transparent
+}
+
+a:hover {
+    border-bottom: 3px solid white
+}
