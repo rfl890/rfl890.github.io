@@ -1,3 +1,2 @@
-# Hello yes   
-This is my site   
-A pain to set up because github = non user friendly file explorer basically   
+# Redirect mirror    
+Main site is https://www.rfl890.cf/
