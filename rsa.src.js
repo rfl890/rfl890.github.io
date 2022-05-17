@@ -38,12 +38,12 @@
       const beginningp = '-----BEGIN PUBLIC KEY-----\n';
       const endingp = '\n-----END PUBLIC KEY-----\n';
       const keyConfig = {
-         name: "RSA-OAEP",
+         name: "RSASSA-PKCS1-v1_5",
          modulusLength: length,
          publicExponent: new Uint8Array([1, 0, 1]),
          hash: hash
       }
-      const key = await subtle.generateKey(keyConfig, true, ["encrypt", "decrypt"]);
+      const key = await subtle.generateKey(keyConfig, true, ["sign", "verify"]);
       const publicKey = key.publicKey;
       const privateKey = key.privateKey;
 
