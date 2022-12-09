@@ -1,0 +1,5 @@
+.str-area {
+    width: 30rem;
+    resize: none;
+    cursor: text !important;
+}
