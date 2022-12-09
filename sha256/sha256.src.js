@@ -1,9 +1,5 @@
 (() => {
     "use strict";
-    const sha256 = (str) => {
-        const byteArray = sjcl.hash.sha256.hash(str);
-        return sjcl.codec.hex.fromBits(byteArray);
-    };
     const selectText = (containerid) => {
         if (document.selection) {
             var range = document.body.createTextRange();
