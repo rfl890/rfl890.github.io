@@ -48,7 +48,7 @@
         let batch = 1024 * 1024 * 2;
         let start = 0;
         let total = file.size;
-        const hash = await hashwasm.createSHA256();
+        const hash = await hashwasm.createSHA384();
         hash.init();
         reader.onload = function (event) {
             try {
@@ -61,7 +61,9 @@
         };
         let asyncUpdate = function () {
             if (start < total) {
-                output.val(((start / total) * 100).toFixed(2) + "%");
+                output.val(
+                    ((start / total) * 100).toFixed(2) + "%"
+                );
                 let end = Math.min(start + batch, total);
                 reader.readAsArrayBuffer(file.slice(start, end));
                 start = end;

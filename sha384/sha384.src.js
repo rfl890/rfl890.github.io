@@ -23,7 +23,7 @@
     const hash_textarea = $("#hash");
     str_textarea.bind("input propertychange", async () => {
         const textToHash = str_textarea.val();
-        const hashed = await hashwasm.sha256(textToHash);
+        const hashed = await hashwasm.sha384(textToHash);
         hash_textarea.val(hashed);
     });
     $("#hash").click(async () => {
