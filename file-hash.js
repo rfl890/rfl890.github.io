@@ -1,4 +1,4 @@
-const startApp = ((hashName) => {
+const startApp = (hashName) => {
     const selectText = (containerid) => {
         if (document.selection) {
             var range = document.body.createTextRange();
@@ -23,25 +23,41 @@ const startApp = ((hashName) => {
     const dropzonetext = $("#dztext");
     const output = $("#hash");
     const progress = document.getElementById("progress");
-    // The following code was (partially) stolen from https://emn178.github.io/online-tools/ because it is 12:00 am and I am too tired to write my own code for this. Full credit to this guy.
+    // The following code was (partially) taken from https://emn178.github.io/online-tools/. Big credit, I am just too lazy to write my own code LOL.
     let file;
     let hashFinished = false;
-    dropzone.bind("dragover", function () {
-        dropzone.addClass("hover");
+    const readers = [];
+    dropzone.bind("drop", async function (e) {
+        if (e.originalEvent.dataTransfer.files[0]) {
+            file = e.originalEvent.dataTransfer.files[0];
+            dropzonetext.text(file.name);
+            progress.style.width = "0%";
+            output.val("");
+            // aborts the other reader when switching files
+            const reader = await autoUpdate();
+            readers.forEach((reader2, i) => {
+                if (reader2 === reader) {} else {
+                    reader2.abort();
+                    readers.splice(i, 1);
+                }
+            });
+        }
     });
-    dropzone.bind("dragleave", function () {
-        dropzone.removeClass("hover");
-    });
-    dropzone.bind("drop", function (e) {
-        dropzone.removeClass("hover");
-        file = e.originalEvent.dataTransfer.files[0];
-        dropzonetext.text(file.name);
-        autoUpdate();
-    });
-    input.bind("change", function () {
-        file = input[0].files[0];
-        dropzonetext.text(file.name);
-        autoUpdate();
+    input.bind("change", async function () {
+        if (input[0].files[0]) {
+            file = input[0].files[0];
+            dropzonetext.text(file.name);
+            progress.style.width = "0%";
+            output.val("");
+            // aborts the other reader when switching files
+            const reader = await autoUpdate();
+            readers.forEach((reader2, i) => {
+                if (reader2 === reader) {} else {
+                    reader2.abort();
+                    readers.splice(i, 1);
+                }
+            });
+        }
     });
     async function autoUpdate() {
         hashFinished = false;
@@ -73,6 +89,8 @@ const startApp = ((hashName) => {
             }
         };
         asyncUpdate();
+        readers.push(reader);
+        return reader;
     }
     output.click(async () => {
         if (hashFinished) {
@@ -80,4 +98,4 @@ const startApp = ((hashName) => {
             await copyText("hash");
         }
     });
-});
+};
