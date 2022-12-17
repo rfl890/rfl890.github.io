@@ -1,7 +1,7 @@
 .the-file {
     display: table;
     height: 30vh;
-    width: 30vw;
+    width: 100%;
     color: #555;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -24,8 +24,11 @@
     word-wrap: break-word;
 }
 .str-output {
-    width: 30vw;
+    width: 100%;
     height: 15%;
+}
+.bar {
+    width: 100%;
 }
 .file-select {
     position: absolute;
@@ -35,9 +38,6 @@
     height: 100% !important;
     width: 100% !important;
     cursor: pointer;
-}
-.bar {
-    width: 30vw;
 }
 @media only screen and (max-width: 800px) {
     .the-file {
@@ -55,7 +55,7 @@
     }
     .str-output {
         width: 100%;
-        height: 15%;
+        height: 30vh;
     }
     .bar {
         width: 100%;
