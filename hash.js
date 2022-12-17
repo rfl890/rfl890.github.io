@@ -14,9 +14,7 @@ const startApp = ((hashName, optionalArg) => {
     };
     const copyText = async (id) => {
         const textToCopy = document.getElementById(id);
-        textToCopy.select();
-        textToCopy.setSelectionRange(0, 99999);
-        await navigator.clipboard.writeText(copyText.value);
+        await navigator.clipboard.writeText(textToCopy.value);
     };
     const str_textarea = $("#input_text");
     const hash_textarea = $("#output_text");
