@@ -13,9 +13,7 @@ const startApp = (hashName, optionalArg) => {
     };
     const copyText = async (id) => {
         const textToCopy = document.getElementById(id);
-        textToCopy.select();
-        textToCopy.setSelectionRange(0, 99999);
-        await navigator.clipboard.writeText(copyText.value);
+        await navigator.clipboard.writeText(textToCopy.value);
     };
     const input = $("#file_select");
     const dropzone = $("#the-file");
