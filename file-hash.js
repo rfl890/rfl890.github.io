@@ -49,9 +49,9 @@ const startApp = (hashName, optionalArg) => {
             output.val("");
             // aborts the other reader when switching files
             const reader = await autoUpdate();
-            readers.forEach((reader2, i) => {
-                if (reader2 === reader) {} else {
-                    reader2.abort();
+            readers.forEach((old_reader, i) => {
+                if (old_reader === reader) {} else {
+                    old_reader.abort();
                     readers.splice(i, 1);
                 }
             });
