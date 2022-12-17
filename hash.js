@@ -13,11 +13,10 @@ const startApp = ((hashName, optionalArg) => {
         }
     };
     const copyText = async (id) => {
-        const copyText = document.getElementById(id);
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
+        const textToCopy = document.getElementById(id);
+        textToCopy.select();
+        textToCopy.setSelectionRange(0, 99999);
         await navigator.clipboard.writeText(copyText.value);
-        return "";
     };
     const str_textarea = $("#input_text");
     const hash_textarea = $("#output_text");
