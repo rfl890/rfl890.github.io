@@ -1,5 +1,4 @@
 const startApp = ((hashName, optionalArg) => {
-    "use strict";
     const selectText = (containerid) => {
         if (document.selection) {
             var range = document.body.createTextRange();
