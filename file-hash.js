@@ -12,11 +12,10 @@ const startApp = (hashName, optionalArg) => {
         }
     };
     const copyText = async (id) => {
-        const copyText = document.getElementById(id);
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
+        const textToCopy = document.getElementById(id);
+        textToCopy.select();
+        textToCopy.setSelectionRange(0, 99999);
         await navigator.clipboard.writeText(copyText.value);
-        return "";
     };
     const input = $("#file_select");
     const dropzone = $("#the-file");
