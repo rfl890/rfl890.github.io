@@ -1,4 +1,4 @@
-const startApp = ((hashName) => {
+const startApp = ((hashName, optionalArg) => {
     "use strict";
     const selectText = (containerid) => {
         if (document.selection) {
@@ -19,17 +19,17 @@ const startApp = ((hashName) => {
         await navigator.clipboard.writeText(copyText.value);
         return "";
     };
-    const str_textarea = $("#str");
-    const hash_textarea = $("#hash");
+    const str_textarea = $("#input_text");
+    const hash_textarea = $("#output_text");
     str_textarea.bind("input propertychange", async () => {
         const textToHash = str_textarea.val();
-        const hashed = await hashwasm[hashName.toLowerCase()](textToHash);
+        const hashed = await hashwasm[hashName](textToHash, optionalArg);
         hash_textarea.val(hashed);
     });
-    $("#hash").click(async () => {
+    $("#output_text").click(async () => {
         const hashed = hash_textarea.val();
         if (hashed.trim() === "") return;
-        selectText("hash");
-        await copyText("hash");
+        selectText("output_text");
+        await copyText("output_text");
     });
 });

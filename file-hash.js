@@ -1,4 +1,4 @@
-const startApp = (hashName) => {
+const startApp = (hashName, optionalArg) => {
     const selectText = (containerid) => {
         if (document.selection) {
             var range = document.body.createTextRange();
@@ -19,9 +19,9 @@ const startApp = (hashName) => {
         return "";
     };
     const input = $("#file_select");
-    const dropzone = $("#file");
+    const dropzone = $("#the-file");
     const dropzonetext = $("#dztext");
-    const output = $("#hash");
+    const output = $("#output_text");
     const progress = document.getElementById("progress");
     // The following code was (partially) taken from https://emn178.github.io/online-tools/. Big credit, I am just too lazy to write my own code LOL.
     let file;
@@ -48,6 +48,7 @@ const startApp = (hashName) => {
             file = input[0].files[0];
             dropzonetext.text(file.name);
             progress.style.width = "0%";
+            progress.innerText = "";
             output.val("");
             // aborts the other reader when switching files
             const reader = await autoUpdate();
@@ -65,7 +66,7 @@ const startApp = (hashName) => {
         let batch = 1024 * 1024 * 2;
         let start = 0;
         let total = file.size;
-        const hash = await hashwasm[`create${hashName}`]();
+        const hash = await hashwasm[`create${hashName}`](optionalArg);
         hash.init();
         reader.onload = function (event) {
             try {
@@ -78,13 +79,15 @@ const startApp = (hashName) => {
         };
         let asyncUpdate = function () {
             if (start < total) {
-                progress.style.width = ((start / total) * 100).toFixed(2) + "%";
+                (async () => { progress.style.width = ((start / total) * 100).toFixed(2) + "%";
+                progress.innerText = ((start / total) * 100).toFixed(2) + "%"; })();
                 let end = Math.min(start + batch, total);
                 reader.readAsArrayBuffer(file.slice(start, end));
                 start = end;
             } else {
                 hashFinished = true;
                 progress.style.width = "100%";
+                progress.innerText = "100%";
                 output.val(hash.digest("hex"));
             }
         };
@@ -94,8 +97,8 @@ const startApp = (hashName) => {
     }
     output.click(async () => {
         if (hashFinished) {
-            selectText("hash");
-            await copyText("hash");
+            selectText("output_text");
+            await copyText("output_text");
         }
     });
 };

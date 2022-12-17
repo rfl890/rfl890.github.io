@@ -1,0 +1,9 @@
+.str-output {
+    width: 30vw;
+}
+
+@media only screen and (max-width: 800px) {
+    .str-output {
+        width: 100%;
+    }
+}

@@ -1,43 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MD5 file online</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css"
-        integrity="sha512-dhpxh4AzF050JM736FF+lLVybu28koEYRrSJtTKfA4Z7jKXJNQ5LcxKmHEwruFN2DuOAi9xeKROJ4Z+sttMjqw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css"
-        integrity="sha512-S6hLYzz2hVBjcFOZkAOO+qEkytvbg2k9yZ1oO+zwXNYnQU71syCWhWtIk3UYDvUW2FCIwkzsTcwkEE58EZPnIQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css"
-        integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="/file-hash.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <div class="page-header">
-            <h1>MD5 file online</h1>
+        <h1 class="mt-4">MD5 file online</h1>
+        <hr>
+        <div class="mb-3">
+            <div class="the-file">
+                <h1 id="dztext">Drop file here</h1>
+                <input type="file" class="file-select" title="Select a file" id="file_select">
+            </div>
         </div>
-        <div class="dropzone" id="file">
-            <h1 id="dztext">Drop file here</h1>
-            <input type="file" class="file-select" title="Select a file" id="file_select"></input>
+        <div class="progress bar mb-1 mt-1">
+            <div class="progress-bar" role="progressbar" aria-label="Progress" aria-valuenow="0" aria-valuemin="0"
+                aria-valuemax="100" id="progress"></div>
         </div>
-        <label for="hash" id="hash_label">Output (click to copy):</label>
-        <div class="progress progress-striped active" style="width: 30.6rem;">
-            <div class="bar" style="width: 0%;" id="progress"></div>
+        <div class="mb-3">
+            <label for="output_text" class="form-label" style="cursor: pointer;">Output:</label>
+            <textarea class="form-control str-output" id="output_text" rows="12" cols="6" readonly="true"
+                style="cursor: text;"></textarea>
         </div>
-        <textarea name="hash" id="hash" title="String to hash" rows="12" class="str-area" readonly="true"></textarea>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"
-        integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/hash-wasm@4.9.0"></script>
     <script src="/file-hash.js"></script>

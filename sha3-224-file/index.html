@@ -4,19 +4,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MD5 online</title>
+    <title>SHA3-224 file online</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href="/hash.css" rel="stylesheet">
+    <link href="/file-hash.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1 class="mt-4">MD5 online</h1>
+        <h1 class="mt-4">SHA3-224 file online</h1>
         <hr>
         <div class="mb-3">
-            <label for="input_text" class="form-label">Text to hash:</label>
-            <textarea class="form-control str-output" id="input_text" rows="12" cols="6"></textarea>
+            <div class="the-file">
+                <h1 id="dztext">Drop file here</h1>
+                <input type="file" class="file-select" title="Select a file" id="file_select">
+            </div>
+        </div>
+        <div class="progress bar mb-1 mt-1">
+            <div class="progress-bar" role="progressbar" aria-label="Progress" aria-valuenow="0" aria-valuemin="0"
+                aria-valuemax="100" id="progress"></div>
         </div>
         <div class="mb-3">
             <label for="output_text" class="form-label" style="cursor: pointer;">Output:</label>
@@ -28,9 +34,9 @@
         integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/hash-wasm@4.9.0"></script>
-    <script src="/hash.js"></script>
+    <script src="/file-hash.js"></script>
     <script>
-        startApp("md5");
+        startApp("SHA3", 224);
     </script>
 </body>
 
