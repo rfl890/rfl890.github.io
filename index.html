@@ -41,6 +41,8 @@
             <li><a href="/base64-enc/">Base64 encode online</a></li>
             <li><a href="/base64-dec/">Base64 decode online</a></li>
             <li><a href="/base91-enc/">Base91 encode online</a></li>
+            <li><a href="/base91-enc-file/">Base91 encode file online</a></li>
+            <li><a href="javascript:void(0);" style="color: grey;" id="ignore">Base91 decode file online (coming soon)</a></li>
             <li><a href="/base91-dec/">Base91 decode online</a></li>
         </ul>
         <p>Please create an issue on the <a href="https://github.com/rfl890/rfl890.github.io">GitHub repo</a> to report
@@ -49,8 +51,10 @@
     <script>
         const links = document.querySelectorAll("a");
         for (link of links) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
+            if (!(link.id === "ignore")) {
+                link.setAttribute("target", "_blank");
+                link.setAttribute("rel", "noopener noreferrer");
+            }
         }
     </script>
     <footer class="footer">
